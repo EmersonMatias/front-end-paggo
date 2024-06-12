@@ -17,7 +17,7 @@ export default function UploadZone({handleUpload}: TUploadZone){
     return(
         <Dropzone accept={{ 'image/*': [".png, .jpeg, .jpg,.webp, .pdf"] }} onDropAccepted={handleUpload}>
         {({ getRootProps, getInputProps, isDragActive, isDragReject }) => (
-            <div {...getRootProps()} className={`bg-pink-500 w-[400px] h-[200px] ${isDragActive && "bg-blue-500"} ${isDragReject && "bg-red-500"} flex items-center justify-center`}>
+            <div {...getRootProps()} className={`bg-blue-500 w-[400px] h-[200px] ${isDragActive && "bg-green-500"} ${isDragReject && "bg-red-500"} flex items-center justify-center bg-opacity-30`}>
                 <input className="hidden" {...getInputProps} />
                 <p className="text-white font-bold text-xl">{dragMessage(isDragActive, isDragReject)}</p>
             </div>
