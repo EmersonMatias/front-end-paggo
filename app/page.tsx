@@ -1,37 +1,18 @@
-'use client'
-import LoginForm from "./components/login-form";
-import { useSession, signIn, signOut } from "next-auth/react"
+import LoginButton from "./components/login-button";
+import { redirect } from "next/navigation";
+import { cookies } from 'next/headers'
 
 export default function Home() {
-  const { data: session } = useSession()
+  const userToken = cookies().get("token")
+  const sessionToken = cookies().get("next-auth.session-token")
 
-  console.log(session)
-
-  function login() {
-    if (session) {
-      return (
-        <>
-          Signed in as {session?.user?.email} <br />
-          <button onClick={() => signOut()}>Sign out</button>
-        </>
-      )
-    }
-    return (
-      <>
-        Not signed in <br />
-        <button onClick={() => signIn()}>Sign in</button>
-      </>
-    )
+  if (userToken && sessionToken) {
+   return  redirect("/dashboard")
   }
 
-
   return (
-
     <main className="w-full h-dvh flex items-center justify-center">
-      <LoginForm />
-
-      {login()}
-
+      <LoginButton />
     </main>
 
   )
