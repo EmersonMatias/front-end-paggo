@@ -4,7 +4,6 @@
 
 1. [Instalação](#instalação)
 2. [Como Usar](#como-usar)
-3. [Informações Importantes](#informaçoes-importantes)
 
 ## Instalação
 Para instalar e configurar o projeto localmente, siga estas etapas:
