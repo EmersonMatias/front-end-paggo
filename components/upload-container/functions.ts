@@ -1,3 +1,4 @@
+import { revalidatePosts } from "@/app/actions"
 import axios from "axios"
 import { Session } from "next-auth"
 import { Dispatch, SetStateAction } from "react"
@@ -26,7 +27,7 @@ export async function uploadToServer({uploadedFiles,session,setUploadedFiles,set
             
             setUploadedFiles({...uploadedFiles, uploaded: true})
             setText(sucess.data)
-            console.log(sucess.data)
+            await revalidatePosts()
         } catch (error) {
             setUploadedFiles({...uploadedFiles, error: true})
             console.log(error)

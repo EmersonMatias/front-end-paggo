@@ -2,7 +2,6 @@
 import { useState } from "react";
 import UploadZone from "../upload-zone/upload-zone";
 import UploadedFiles from "../uploaded-files";
-import axios from "axios";
 import { useSession } from "next-auth/react";
 import { resetUpload, uploadToServer } from "./functions";
 
@@ -11,14 +10,6 @@ export default function UploadContainer() {
     const [text, setText] = useState("")
     const { data: session } = useSession()
 
-    async function getAllUsers() {
-        const sucess = await axios.get("http://localhost:3005", { headers: { "Authorization": `Bearer: ${session?.userToken}` } })
-        console.log(sucess)
-    }
-
-    console.log(uploadedFiles?.uploaded )
-
-   
 
     //getAllUsers()
 

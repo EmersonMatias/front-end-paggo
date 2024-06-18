@@ -1,11 +1,11 @@
 'use client'
-import { deleteCookie } from "@/app/actions"
+import { deleteCookie, redirectToLogin } from "@/app/actions"
 
 export default function ExitButton() {
     async function exit(){
         await deleteCookie("token")
         await deleteCookie("next-auth.session-token")
-        window.location.reload()
+        redirectToLogin()
     }
 
     return (
