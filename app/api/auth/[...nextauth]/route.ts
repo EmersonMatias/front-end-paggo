@@ -16,7 +16,7 @@ const handler = NextAuth({
             createToken(session.userToken)
             return session
         },
-        async redirect({baseUrl,url}){
+        async redirect({ baseUrl, url }) {
             return ("http://localhost:3000/dashboard")
         }
     }

@@ -1,4 +1,4 @@
-import LoginButton from "./components/login-button";
+import LoginButton from "../components/login-button";
 import { redirect } from "next/navigation";
 import { cookies } from 'next/headers'
 
